@@ -9,8 +9,20 @@ yargs.version('1.0.1')
 yargs.command({
     command: 'add',
     describe: 'Add a new note',
-    handler: function(){
-        console.log(chalk.green.bold('Adding a new note . . .'))
+    builder:{
+        title:{
+            describe: 'Note Title',
+            demandOption: true,
+            type: 'string'
+        },
+        content:{
+            describe: 'Note Title',
+            demandOption: true,
+            type: 'string' || 'number'
+        }
+    },
+    handler: function(argv){
+        console.log(chalk.green.bold('Title: ' + argv.title + '\nNote: ' + argv.content))
     }
 })
 
